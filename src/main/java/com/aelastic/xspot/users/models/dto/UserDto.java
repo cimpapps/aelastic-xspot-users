@@ -1,5 +1,6 @@
 package com.aelastic.xspot.users.models.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +11,13 @@ import org.springframework.data.annotation.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserDto {
 
     @Id
     private String id;
     //TODO add fields
+
+    private String email;
 
 }

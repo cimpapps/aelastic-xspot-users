@@ -1,5 +1,6 @@
 package com.aelastic.xspot.users.services;
 
+import com.aelastic.xspot.users.models.documents.UserDocument;
 import com.aelastic.xspot.users.models.dto.UserDto;
 import com.aelastic.xspot.users.models.utils.UserMapper;
 import com.aelastic.xspot.users.repo.UserRepo;
@@ -25,4 +26,11 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    public UserDto addUser(UserDto userDto) {
+        UserDocument userDocument = userRepo.save(UserMapper.toDocument(userDto));
+        System.out.println(userDocument);
+        //TODO send document to kafka
+
+        return UserMapper.toDto(userDocument);
+    }
 }

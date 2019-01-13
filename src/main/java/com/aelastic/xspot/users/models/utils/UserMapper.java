@@ -8,6 +8,8 @@ public class UserMapper {
     public static UserDto toDto(UserDocument userDocument) {
         return UserDto.builder()
                 //TODO implement
+                .id(userDocument.getId())
+                .email(userDocument.getEmail())
                 .build();
 
     }
@@ -15,6 +17,8 @@ public class UserMapper {
     public static UserDocument toDocument(UserDto userDto) {
         return UserDocument.builder()
                 //TODO implement
+                .id(userDto.getId())
+                .email(userDto.getEmail())
                 .build();
     }
 
