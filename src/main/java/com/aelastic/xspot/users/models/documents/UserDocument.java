@@ -17,4 +17,5 @@ public class UserDocument {
 
     @Id
     private String id;
+    //TODO add fields
 }
