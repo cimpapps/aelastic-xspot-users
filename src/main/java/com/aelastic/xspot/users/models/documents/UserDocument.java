@@ -23,5 +23,5 @@ public class UserDocument {
 
     private String email;
 
-    private Boolean activated;
+    private boolean activated;
 }

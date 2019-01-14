@@ -20,6 +20,6 @@ public class UserDto {
 
     private String email;
 
-    private Boolean activated;
+    private boolean activated;
 
 }

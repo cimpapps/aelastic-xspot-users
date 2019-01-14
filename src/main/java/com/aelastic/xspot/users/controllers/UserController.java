@@ -36,8 +36,8 @@ public class UserController {
         return userService.addUser(userDto);
     }
 
-    @PostMapping("/users/{id}")
-    public UserDto updateUser(@PathVariable String id) {
+    @PutMapping("/users/{id}")
+    public UserDto activateUser(@PathVariable String id) {
         return userService.activateUser(id);
     }
 
