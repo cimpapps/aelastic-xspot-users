@@ -34,7 +34,6 @@ public class UserService {
         UserDocument userDocument = userRepo.save(UserMapper.toDocument(userDto));
 
         kafkaProducerService.registerUser(userDocument);
-        //TODO send document to kafka
 
         return UserMapper.toDto(userDocument);
     }

@@ -27,6 +27,7 @@ public class KafkaProducerService {
     @Async
     public void registerUser(UserDocument userDocument) {
         ProducerRecord record = new ProducerRecord<String, UserDocument>(registerUserTopic, userDocument.getId(), userDocument);
+        
         kafkaTemplate.send(record);
     }
 }
