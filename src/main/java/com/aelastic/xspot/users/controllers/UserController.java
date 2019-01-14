@@ -36,7 +36,7 @@ public class UserController {
         return userService.addUser(userDto);
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/activate/users/{id}")
     public UserDto activateUser(@PathVariable String id) {
         return userService.activateUser(id);
     }
