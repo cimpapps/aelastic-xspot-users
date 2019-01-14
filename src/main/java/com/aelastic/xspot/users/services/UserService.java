@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,9 +16,12 @@ public class UserService {
 
     private UserRepo userRepo;
 
+    private KafkaProducerService kafkaProducerService;
+
     @Autowired
-    public UserService(UserRepo userRepo) {
+    public UserService(UserRepo userRepo, KafkaProducerService kafkaProducerService) {
         this.userRepo = userRepo;
+        this.kafkaProducerService = kafkaProducerService;
     }
 
     public List<UserDto> findAll() {
@@ -28,9 +32,18 @@ public class UserService {
 
     public UserDto addUser(UserDto userDto) {
         UserDocument userDocument = userRepo.save(UserMapper.toDocument(userDto));
-        System.out.println(userDocument);
+
+        kafkaProducerService.registerUser(userDocument);
         //TODO send document to kafka
 
         return UserMapper.toDto(userDocument);
+    }
+
+    public UserDto activateUser(String id) {
+        Optional<UserDocument> userDoc = userRepo.findById(id);
+        return userDoc.map(u -> {
+            u.setActivated(true);
+            return UserMapper.toDto(userRepo.save(u));
+        }).get();
     }
 }

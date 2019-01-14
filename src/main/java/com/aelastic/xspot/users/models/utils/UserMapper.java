@@ -10,6 +10,7 @@ public class UserMapper {
                 //TODO implement
                 .id(userDocument.getId())
                 .email(userDocument.getEmail())
+                .activated(userDocument.getActivated())
                 .build();
 
     }
@@ -19,6 +20,7 @@ public class UserMapper {
                 //TODO implement
                 .id(userDto.getId())
                 .email(userDto.getEmail())
+                .activated(userDto.getActivated())
                 .build();
     }
 

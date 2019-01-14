@@ -22,4 +22,6 @@ public class UserDocument {
     //TODO add fields
 
     private String email;
+
+    private Boolean activated;
 }
