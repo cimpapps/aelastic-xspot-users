@@ -1,6 +1,7 @@
 package com.aelastic.xspot.users.models.documents;
 
 
+import com.aelastic.xspot.users.models.BookingRestriction;
 import com.aelastic.xspot.users.models.Location;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -35,7 +36,7 @@ public class UserDocument implements Serializable {
 
     private List<String> preferences;
 
-    private long nrOfPenalties;
+    private BookingRestriction bookingRestriction;
 
 
 }

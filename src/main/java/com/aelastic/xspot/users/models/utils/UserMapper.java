@@ -13,7 +13,7 @@ public class UserMapper {
                 .homeLocation(userDocument.getHomeLocation())
                 .workLocation(userDocument.getWorkLocation())
                 .preferences(userDocument.getPreferences())
-                .nrOfPenalties(userDocument.getNrOfPenalties())
+                .bookingRestriction(userDocument.getBookingRestriction())
                 .build();
 
     }
@@ -26,7 +26,7 @@ public class UserMapper {
                 .homeLocation(userDto.getHomeLocation())
                 .workLocation(userDto.getWorkLocation())
                 .preferences(userDto.getPreferences())
-                .nrOfPenalties(userDto.getNrOfPenalties())
+                .bookingRestriction(userDto.getBookingRestriction())
                 .build();
     }
 
