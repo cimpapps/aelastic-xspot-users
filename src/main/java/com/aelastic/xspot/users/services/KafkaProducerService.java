@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class KafkaProducerService {
 
 
-    @Value("${cloudkarafka.register-user-topic}")
+    @Value("${register-user-topic}")
     private String registerUserTopic;
 
 

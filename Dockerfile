@@ -6,4 +6,4 @@ ENV BOOTSTRAP_SERVERS="localhost:9092"
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","-Dspring.kafka.bootstrap-servers=$BOOTSTRAP_SERVERS","app:app/lib/*","com.aelastic.xspot.users.UsersApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.aelastic.xspot.users.UsersApplication","-Dspring.kafka.bootstrap-servers=$BOOTSTRAP_SERVERS"]
